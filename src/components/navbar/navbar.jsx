@@ -13,7 +13,7 @@ const Navbar = () => {
     <div onClick={() => navigate("/")} className="navbar wrap">
       <div className="logo">
         <img src={logo} alt="" />
-        DaliyaMovies
+        <p>DaliyaMovies</p>
       </div>
       <div>
         <ul className="navlist">

@@ -1,0 +1,34 @@
+.footer {
+  position: relative;
+  padding: 0.5rem 0;
+  color: #faebd7;
+  background-color: #0f0f0f;
+}
+
+.logo2 {
+  cursor: pointer;
+  font-size: 2.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+//   background-color: red;
+  width: 20rem;
+
+  img {
+    margin-right: 10px;
+    width: 50px;
+  }
+}
+
+.footerList {
+  list-style-type: circle;
+  cursor: pointer;
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.content {
+    padding: 0 2rem;
+}

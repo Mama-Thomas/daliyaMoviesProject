@@ -20,7 +20,7 @@ function App() {
           <Route path="/:category/:id" element={<Detail />} />
         </Routes>
 
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </>
   );
