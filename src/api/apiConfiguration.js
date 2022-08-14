@@ -4,7 +4,7 @@ const apiConfiguration = {
   ORIGINAL_IMAGE: (imagePathname) =>
     `https://image.tmdb.org/t/p/original${imagePathname}`,
   W500_IMAGE: (imagePathname) =>
-    `https://image.tmdb.org/t/p/w500${imagePathname}}`,
+    `https://image.tmdb.org/t/p/w500/${imagePathname}}`
 };
 
 export default apiConfiguration;

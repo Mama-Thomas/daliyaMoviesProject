@@ -2,17 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
 
 // import SwiperCore, { Autoplay, Virtual } from "swiper";
 import SwiperCore, { Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import Button, { OutlineButton } from "../Button/Button";
-import Modal, {ModalContent} from "../Modal/Modal";
+import Modal, { ModalContent } from "../Modal/Modal";
 
-import tmdbApi, { category, movieType } from "../../api/tmdbApi";
 import apiConfiguration from "../../api/apiConfiguration";
+import tmdbApi, { category, movieType } from "../../api/tmdbApi";
 
-import "./MediaSlider.scss";
 import { useNavigate } from "react-router-dom";
+import "./MediaSlider.scss";
 const MediaSlider = () => {
   SwiperCore.use([Autoplay]);
 
@@ -82,6 +82,7 @@ const MediaSlideItem = (props) => {
   );
 
   const setModalActive = async () => {
+    
     const modal = document.querySelector(`#modal_${item.id}`);
     const videos = await tmdbApi.getVideos(category.movie, item.id);
 
