@@ -1,17 +1,11 @@
 import React from 'react'
+import MediaSlider from '../components/Slider/MediaSlider';
 
 const Homepage = () => {
   return (
-    <div>
-      <div>Homepage</div>
-      <div>Homepage</div>
-      <div>Homepage</div>
-      <div>Homepage</div>
-      <div>Homepage</div>
-      <div>Homepage</div>
-      <div>Homepage</div>
-      <div>Homepage</div>
-    </div>
+    <>
+      <MediaSlider />
+    </>
   );
 }
 

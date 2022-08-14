@@ -1,13 +1,10 @@
-import React from 'react'
-import './navbar.scss';
-import logo from '../../assets/playIcon.png'
-import { useNavigate } from 'react-router-dom';
-
-
+import React from "react";
+import "./navbar.scss";
+import logo from "../../assets/playIcon.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div onClick={() => navigate("/")} className="navbar wrap">
@@ -19,11 +16,11 @@ const Navbar = () => {
         <ul className="navlist">
           <li onClick={() => navigate("/movie")}>Movies</li>
           <li onClick={() => navigate("/tv")}>Tv Shows</li>
-          <li onClick={() => navigate('/people')}>People</li>
+          <li onClick={() => navigate("/people")}>People</li>
         </ul>
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;
