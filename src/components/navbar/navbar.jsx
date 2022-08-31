@@ -18,7 +18,7 @@ const headerNav = [
   },
   {
     display: "People",
-    path: "/people",
+    path: "/person",
   }
 ];
 
