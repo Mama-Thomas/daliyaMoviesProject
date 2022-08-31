@@ -23,6 +23,7 @@ export const tvType = {
 }
 export const peopleType = {
     popular:'popular'
+    // latest:'latest'
 }
 
 
@@ -36,7 +37,7 @@ const tmdbApi = {
         return axiosClient.get(url,params);
     },
     getPeopleList: (type,params) => {
-        const url ='people/' + peopleType[type];
+        const url ='person/' + peopleType[type];
         return axiosClient.get(url,params);
     },
     getVideos: (cate, id) => {
@@ -62,3 +63,5 @@ const tmdbApi = {
 }
 
 export default tmdbApi;
+
+ 

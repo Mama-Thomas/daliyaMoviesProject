@@ -12,7 +12,7 @@ import apiConfiguration from '../../api/apiConfiguration';
 const MovieCard = props => {
     const item = props.item;
     const link = '/' + category[props.category] + '/' + item.id;
-    const bg = apiConfiguration.ORIGINAL_IMAGE(item.poster_path || item.backdrop_path);
+    const bg = apiConfiguration.ORIGINAL_IMAGE(item.poster_path || item.backdrop_path || item.profile_path);
 
   return (
    <Link to={link}>

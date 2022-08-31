@@ -4,7 +4,7 @@ import "./App.scss";
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
 import Homepage from "./pages/Homepage";
-import Catalog from "./pages/Catalog";
+import DirectoryPage from "./pages/DirectoryPage";
 import Detail from "./pages/Detail/Detail";
 
 
@@ -16,8 +16,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/:category" element={<Catalog />} />
-          <Route path="/:category/search/:keyword" element={<Catalog />} />
+          <Route path="/:category" element={<DirectoryPage />} />
+          <Route path="/:category/search/:keyword" element={<DirectoryPage />} />
           <Route path="/:category/:id" element={<Detail />} />
         </Routes>
 
