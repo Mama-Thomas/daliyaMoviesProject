@@ -64,7 +64,6 @@ const MediaSlider = () => {
         </SwiperSlide>
         ))}
       </Swiper>
-      )
       {movieItems.map((item, i) => (
         <TrailerModal key={i} item={item} />
       ))}

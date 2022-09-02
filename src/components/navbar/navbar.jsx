@@ -13,7 +13,7 @@ const headerNav = [
     path: "/movie",
   },
   {
-    display: "TV Series",
+    display: "TV",
     path: "/tv",
   },
   {
