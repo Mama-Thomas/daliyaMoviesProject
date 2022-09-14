@@ -1,0 +1,37 @@
+#signUpformInput {
+  background-color: black;
+  padding: 20px;
+//   width: 100%;
+  border-bottom: 1px solid grey;
+  margin: 50px 25px 25px 25px;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+}
+
+#signInTitle {
+  color: white;
+}
+
+#signUpEmailInput {
+  display: block;
+  width: 100%;
+  background-color: black;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+#signUpPasswordInput {
+  display: block;
+  width: 100%;
+  background-color: black;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.signUpButton {
+  width: 40%;
+}

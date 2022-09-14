@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../assets/playIcon.png";
 
 import "./footer.scss";
 
@@ -9,12 +8,6 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footerContentContainer">
-        {/* <div className="footerContentLogo">
-          <div className="logo2">
-            <img src={logo} alt="" />
-            <p>DaliyaMovies</p>
-          </div>
-        </div> */}
 
         <div className="footerListItems">
           <div className="footerListItem">
@@ -36,17 +29,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* <div>
-          <ul className="footerList">
-            <li onClick={() => navigate("/")}>Home</li>
-            <li onClick={() => navigate("/")}>Terms of Service</li>
-            <li onClick={() => navigate("/")}>Privacy Policy</li>
-            <li onClick={() => navigate("/")}>FAQ</li>
-          </ul>
-        </div> */}
+
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Footer;

@@ -1,7 +1,11 @@
-import React, {useRef, useEffect} from "react";
+import React, {useRef, useEffect, useContext} from "react";
 import "./navbar.scss";
 import logo from "../../assets/playIcon.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate} from "react-router-dom";
+
+import { AuthContext } from "../Auth/Auth";
+
+// import SignInUpOut, {UserContext} from "../SignInUpOut/SignInUpOut";
 
 const headerNav = [
   {
@@ -22,7 +26,12 @@ const headerNav = [
   }
 ];
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+  const {currentUser} = useContext(AuthContext);
+
+  // const navigate = useNavigate();
+
   const { pathname } = useLocation();
   const headerRef = useRef(null);
 
@@ -58,7 +67,19 @@ const Navbar = () => {
               <Link to={e.path}>{e.display}</Link>
             </li>
           ))}
+          {currentUser ? (
+            <li>
+              <Link to="/myaccount"> My Account </Link>
+            </li>
+          ) : (
+            <li>
+              <Link to="/login"> Sign In </Link>
+            </li>
+          )}
         </ul>
+        {/* {console.log(`User Logged In ${currentUser?.email}`)}
+        {console.log(`UserContexts ${currentUser}`)} */}
+        {/* {console.log(props)} */}
       </div>
     </div>
   );
