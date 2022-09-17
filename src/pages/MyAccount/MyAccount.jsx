@@ -5,7 +5,7 @@ import { auth } from "../../api/firebase-config";
 
 import { signOut } from "firebase/auth";
 
-import { AuthContext } from "../Auth/Auth";
+import { AuthContext } from "../../components/Auth/Auth";
 
 import "./MyAccount.scss";
 

@@ -1,7 +1,9 @@
 import React from 'react';
 
-import Login from '../components/Login/Login';
-import Register from '../components/Register/Register';
+import "./SignInAndUp.scss";
+
+import Login from '../../components/Login/Login';
+import Register from '../../components/Register/Register';
 
 const SignInAndUp = () => {
   return (
