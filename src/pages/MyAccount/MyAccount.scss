@@ -1,3 +1,59 @@
-body{
-    padding: 100px;
+#myaccount {
+  margin: 50px 25px 25px 25px;
+
+  display: block;
+  width: 100%;
+  padding: 100px;
+  color: white;
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+}
+
+#pageTitle {
+  color: rgb(221, 160, 221);
+  margin-bottom: 10px;
+}
+
+h3 {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid grey;
+
+  font-weight: 700;
+  position: relative;
+  font-size: 1.5rem;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    transition: width 0.5s ease;
+    height: 2px;
+    background-color: rgb(221, 160, 221);
+  }
+
+  &.active::after,
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+#pageItem {
+  background-color: black;
+  padding: 20px;
+  border-bottom: 1px solid grey;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
 }

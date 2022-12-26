@@ -11,10 +11,14 @@ import { AuthContext } from "../Auth/Auth";
 import "./Login.scss";
 
 const Login = (props) => {
+  // const [loginName, setLoginName] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
   const { currentUser } = useContext(AuthContext);
+  
+  
+
 
   const login = async () => {
     try {
@@ -39,10 +43,9 @@ const Login = (props) => {
       <div id="signInformInput">
         <h3 id="signInTitle">I already have an account</h3>
         <span>Sign in with your email and password</span>
-
         <form onSubmit={handleSubmit}>
           <input
-            id="signInEmailInput"
+            className="signInputs"
             placeholder="Email..."
             type="email"
             onChange={(event) => {
@@ -52,7 +55,7 @@ const Login = (props) => {
             required
           />
           <input
-            id="signInPasswordInput"
+            className="signInputs"
             placeholder="Password..."
             type="password"
             onChange={(event) => {

@@ -19,6 +19,7 @@ export const AuthProvider = ({children}) => {
         {children}
       </AuthContext.Provider>
       {console.log(currentUser?.email)}
+      {console.log(currentUser?.displayName)}
     </>
   );
 }

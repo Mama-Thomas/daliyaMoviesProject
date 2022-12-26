@@ -1,19 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+
+import { firebase} from "firebase/app";
+
+import { arrayUnion } from "firebase/firestore";
+
 
 import tmdbApi from "../../api/tmdbApi";
 import apiConfiguration from "../../api/apiConfiguration";
+
+import { db } from "../../api/firebase-config";
+import {doc, updateDoc } from "firebase/firestore";
+import { AuthContext } from "../../components/Auth/Auth";
+
 
 import "./Detail.scss";
 import CastList from "./CastList";
 import VideoList from "./VideoList";
 
 import MovieDirectory from '../../components/MovieDirectory/MovieDirectory';
+import { OutlineButton } from "../../components/Button/Button";
 
 const Detail = props => {
   const { category, id } = useParams();
 
   const [item, setItem] = useState(null);
+
+  // const [isloading, setIsloading] = useState(false);
+
+  const {currentUser} = useContext(AuthContext);
 
   useEffect(() => {
     const getDetail = async () => {
@@ -24,16 +39,31 @@ const Detail = props => {
     getDetail();
   }, [category, id]);
 
-//   useEffect(() => {
-//    if(props.category !== 'person'){
-//               <div className="cast">
-//                 <div className="section__header">
-//                   <h2>Casts</h2>
-//                 </div>
-//                 <CastList id={item.id} />
-//               </div>
-// }
-//   }, [])
+  const addToCollection = async() => {
+    try {
+      if (category === "movie") {
+        await updateDoc(doc(db, "users", currentUser.uid), {
+          moviesCol: arrayUnion(id),
+        });
+        console.log("Added to " + category);
+
+      } else if (category === "tv") {
+        await updateDoc(doc(db, "users", currentUser.uid), {
+          TvCol: arrayUnion(id),
+        });
+        console.log("Added to " + category);
+
+      } else if (category === "person") {
+        await updateDoc(doc(db, "users", currentUser.uid), {
+          PeopleCol: arrayUnion(id),
+        });
+        console.log("Added to " + category);
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
   
 
   return (
@@ -74,14 +104,7 @@ const Detail = props => {
                 )}
               </div>
               <p className="overview">{item.overview || item.biography}</p>
-
-              
-                {/* <div className="cast">
-                  <div className="section__header">
-                    <h2>Casts</h2>
-                  </div>
-                  <CastList id={item.id} />
-                </div> */}
+              <OutlineButton onClick= {addToCollection}>Add to Collection</OutlineButton>
 
               {
               

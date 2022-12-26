@@ -6,13 +6,8 @@ import { AuthProvider } from "./components/Auth/Auth";
 
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer/footer";
-// import Homepage from "./pages/Homepage";
-// import DirectoryPage from "./pages/DirectoryPage";
-// import Detail from "./pages/Detail/Detail";
-// import MyAccount from "./components/MyAccount/MyAccount";
-import PrivateRoute from "./PrivateRoute";
-// import SignInAndUp from "./pages/SignInAndUp";
 
+import PrivateRoute from "./PrivateRoute";
 import Spinner from './components/Spinner/Spinner';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
@@ -22,14 +17,26 @@ const HomePage = lazy(() => {
     setTimeout(() => resolve(import("./pages/Homepage")), 300);
   })
   });
+
 const SignInAndUp = lazy(() => {
   return new Promise(resolve => {
     setTimeout(() => resolve(import("./pages/SignInAndUp/SignInAndUp")), 300);
   })
   });
-const MyAccount = lazy(() => import("./pages/MyAccount/MyAccount"));
+
+const MyAccount = lazy(() => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(import("./pages/MyAccount/MyAccount")), 600);
+  });
+});
+
+
+/* const HomePage = lazy(() => import("./pages/Homepage"));
+const SignInAndUp = lazy(() => import("./pages/SignInAndUp/SignInAndUp")) */
+// const MyAccount = lazy(() => import("./pages/MyAccount/MyAccount"));
 const DirectoryPage = lazy(() => import("./pages/DirectoryPage"));
 const Detail = lazy(() => import("./pages/Detail/Detail"));
+const MovieColl = lazy(() => import("./pages/UserCollections/MovieColl"));
 
 // const Footer = lazy(() => import("./components/footer/footer"));
 
@@ -61,13 +68,15 @@ function App() {
             />
             <Route path="/:category/:id" element={SuspenseComponent(Detail)} />
             <Route path="/myaccount" element={SuspenseComponent(MyAccount)} />
+            <Route
+              path="/moviecollection"
+              element={SuspenseComponent(MovieColl)}
+            />
 
             <Route
               path="/login"
               element={
-                <PrivateRoute>
-                  {SuspenseComponent(SignInAndUp)}
-                </PrivateRoute>
+                <PrivateRoute>{SuspenseComponent(SignInAndUp)}</PrivateRoute>
               }
             />
           </Routes>

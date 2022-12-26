@@ -1,16 +1,23 @@
-import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-import { auth } from "../../api/firebase-config";
+import { auth, db } from "../../api/firebase-config";
+
+import { getDoc, doc } from "firebase/firestore";
 
 import { signOut } from "firebase/auth";
 
 import { AuthContext } from "../../components/Auth/Auth";
 
+import { OutlineButton } from "../../components/Button/Button";
+
 import "./MyAccount.scss";
 
 const MyAccount = () => {
   const { currentUser } = useContext(AuthContext);
+
+  const [userDoc, setUserDoc] = useState(null);
+  const [isloading, setIsloading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -19,10 +26,45 @@ const MyAccount = () => {
     navigate("/");
   };
 
+  if (currentUser?.uid && isloading === false) {
+    const user = async () => {
+      await getDoc(doc(db, "users", currentUser.uid)).then((snap) => {
+        console.log(snap.data());
+        setUserDoc(snap.data());
+        console.log(snap.data().name);
+        setIsloading(true);
+      });
+    };
+    user();
+  }
+
+  // console.log("This is userDoc" + userDoc?.name);
+
   return (
-    <div>
-      <h1>{`Welcome  ${currentUser?.email}`}</h1>
-      {currentUser ? <button onClick={logout}> Sign Out </button> : null}
+    <div id="myaccount">
+      <h1 id="pageTitle">{`Welcome,  ${userDoc?.name}`}</h1>
+      {/* <h1>{currentUser?.uid}</h1> */}
+
+      <div id="pageItem">
+        {/* <h3>
+          <Link to={"/moviecollection"}> Personal Info</Link>
+        </h3> */}
+        <h3>
+          <Link to={"/moviecollection"}> Your Movies collection</Link>
+        </h3>
+        <h3>
+          <Link to={"/moviecollection"}>Your Tv Shows collection</Link>
+        </h3>
+        <h3>
+          <Link to={"/moviecollection"}> Your People collection</Link>
+        </h3>
+
+        {currentUser ? (
+          <OutlineButton id="pageButton" onClick={logout}>
+            Sign Out
+          </OutlineButton>
+        ) : null}
+      </div>
     </div>
   );
 };
