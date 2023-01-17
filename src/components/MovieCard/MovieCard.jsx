@@ -15,14 +15,15 @@ const MovieCard = props => {
     const bg = apiConfiguration.ORIGINAL_IMAGE(item.poster_path || item.backdrop_path || item.profile_path);
 
   return (
-   <Link to={link}>
-        <div className="movie-card " style={{backgroundImage: `url(${bg})`}}>
-            <Button>
-                <i>Watch</i>
-            </Button>
-        </div>
-        <h3>{item.title || item.name}</h3>
-   </Link>
+    <Link to={link}>
+      <div id= {props.id} className="movie-card " style={{backgroundImage: `url(${bg})`}}>
+     
+        <Button>
+          <i>Watch</i>
+        </Button>
+      </div>
+      <h3>{item.title || item.name}</h3>
+    </Link>
   );
 }
 

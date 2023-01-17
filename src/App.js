@@ -37,6 +37,10 @@ const SignInAndUp = lazy(() => import("./pages/SignInAndUp/SignInAndUp")) */
 const DirectoryPage = lazy(() => import("./pages/DirectoryPage"));
 const Detail = lazy(() => import("./pages/Detail/Detail"));
 const MovieColl = lazy(() => import("./pages/UserCollections/MovieColl"));
+const TvColl = lazy(() => import("./pages/UserCollections/TvColl"));
+const PeopleColl = lazy(() => import("./pages/UserCollections/PeopleColl"));
+
+
 
 // const Footer = lazy(() => import("./components/footer/footer"));
 
@@ -72,6 +76,9 @@ function App() {
               path="/moviecollection"
               element={SuspenseComponent(MovieColl)}
             />
+            <Route path="/tvcollection" element={SuspenseComponent(TvColl)} />
+
+            <Route path="/peoplecollection" element={SuspenseComponent(PeopleColl)} />
 
             <Route
               path="/login"

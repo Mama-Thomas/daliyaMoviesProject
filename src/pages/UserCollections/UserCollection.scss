@@ -1,3 +1,33 @@
-body {
-    padding: 100px;
+.mymovie-list {
+  margin-bottom: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  // flex: 0 0 33.333333%;
+    width: 100%;
+
+    @media only screen and (max-width: 1024px) {
+      width: 30%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      width: 40%;
+    
+  }
 }
+
+#title{
+  color: white;
+  margin-top: 15%;
+  margin-bottom: 2%;
+  margin-left: 2%;
+
+  
+}
+#colItem{
+  
+  width: 100%;
+}
+
+
+
+

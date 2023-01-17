@@ -53,10 +53,10 @@ const MyAccount = () => {
           <Link to={"/moviecollection"}> Your Movies collection</Link>
         </h3>
         <h3>
-          <Link to={"/moviecollection"}>Your Tv Shows collection</Link>
+          <Link to={"/tvcollection"}>Your Tv Shows collection</Link>
         </h3>
         <h3>
-          <Link to={"/moviecollection"}> Your People collection</Link>
+          <Link to={"/peoplecollection"}> Your People collection</Link>
         </h3>
 
         {currentUser ? (
