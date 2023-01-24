@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 
-import { firebase} from "firebase/app";
 
 import { arrayUnion } from "firebase/firestore";
 

@@ -3,6 +3,12 @@
   display: flex;
   flex-wrap: wrap;
   // flex: 0 0 33.333333%;
+
+  &.custom-list{
+    max-width: 970px;
+    width: 94%;
+    margin: 0 auto;
+  }
     width: 100%;
 
     @media only screen and (max-width: 1024px) {
@@ -20,6 +26,8 @@
   margin-top: 15%;
   margin-bottom: 2%;
   margin-left: 2%;
+  color: rgb(221, 160, 221);
+
 
   
 }

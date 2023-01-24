@@ -1,10 +1,11 @@
 import { initializeApp } from "firebase/app";
 import {getAuth} from 'firebase/auth';
-import {getFirestore} from 'firebase/firestore'
+import {getFirestore} from 'firebase/firestore';
+import {firebase_API_KEY} from "./keys"
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDFoo8i1tejDHN0eHduKP9JuV889egPDJ8",
+  apiKey: firebase_API_KEY,
   authDomain: "daliyamovies-54080.firebaseapp.com",
   projectId: "daliyamovies-54080",
   storageBucket: "daliyamovies-54080.appspot.com",

@@ -12,11 +12,12 @@ import { AuthContext } from "../../components/Auth/Auth";
 import { OutlineButton } from "../../components/Button/Button";
 
 import "./MyAccount.scss";
+import { useEffect } from "react";
 
 const MyAccount = () => {
   const { currentUser } = useContext(AuthContext);
 
-  const [userDoc, setUserDoc] = useState(null);
+  const [userDoc, setUserDoc] = useState({});
   const [isloading, setIsloading] = useState(false);
 
   const navigate = useNavigate();
@@ -26,23 +27,27 @@ const MyAccount = () => {
     navigate("/");
   };
 
-  if (currentUser?.uid && isloading === false) {
-    const user = async () => {
-      await getDoc(doc(db, "users", currentUser.uid)).then((snap) => {
-        console.log(snap.data());
-        setUserDoc(snap.data());
-        console.log(snap.data().name);
-        setIsloading(true);
-      });
-    };
-    user();
-  }
+  useEffect(() => {
+    if (currentUser?.uid && isloading === false) {
+      const user = async () => {
+        await getDoc(doc(db, "users", currentUser.uid)).then((snap) => {
+          console.log(snap.data());
+          setUserDoc(snap.data());
+          console.log(snap.data().name);
+          setIsloading(true);
+        });
+      };
+      user();
+    }
+  }, [currentUser, isloading]);
 
   // console.log("This is userDoc" + userDoc?.name);
 
   return (
     <div id="myaccount">
-      <h1 id="pageTitle">{`Welcome,  ${userDoc?.name}`}</h1>
+      {Object.keys(userDoc).length !== 0 && (
+        <h1 id="pageTitle">{`Welcome,  ${userDoc.name}`}</h1>
+      )}
       {/* <h1>{currentUser?.uid}</h1> */}
 
       <div id="pageItem">

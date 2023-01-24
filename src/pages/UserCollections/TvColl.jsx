@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../api/firebase-config";
@@ -11,7 +11,7 @@ import MovieCard from "../../components/MovieCard/MovieCard";
 import "./UserCollection.scss";
 import "../../components/MovieDirectory/MovieDirectory.scss";
 
-const TvColl = () => {
+const MovieColl = () => {
   const { currentUser } = useContext(AuthContext);
 
   const [userDoc, setUserDoc] = useState([]);
@@ -19,56 +19,56 @@ const TvColl = () => {
   const [nameLoaded, setNameLoaded] = useState(false);
   const [itemsList, setItemsList] = useState([]);
 
-  const getUser = () => {
-    if (currentUser?.uid && isloaded === false) {
-      getDoc(doc(db, "users", currentUser.uid)).then((snap) => {
-        console.log(snap.data());
-        setUserDoc(snap.data().TvCol);
-        console.log(snap.data().TvCol);
-        setIsloaded(true);
-      });
-    }
-  };
+  useEffect(() => {
+    const getUser = () => {
+      if (currentUser?.uid && isloaded === false) {
+        getDoc(doc(db, "users", currentUser.uid)).then((snap) => {
+          console.log(snap.data());
+          setUserDoc(snap.data().TvCol);
+          console.log(snap.data().TvCol);
+          setIsloaded(true);
+        });
+      }
+    };
 
-  getUser();
+    getUser();
+  }, [currentUser?.uid, isloaded]);
 
-  console.log(isloaded);
+  useEffect(() => {
+    const myTry = () => {
+      if (isloaded === true && nameLoaded === false) {
+        userDoc.map(async (item) => {
+          const response = await tmdbApi.getById("tv", item);
 
-  console.log(userDoc);
+          console.log("response got here!!", response);
+          const result = response;
+          console.log(result);
 
-  const myTry = () => {
-    if (isloaded === true && nameLoaded === false) {
-      userDoc.map(async (item) => {
-        const response = await tmdbApi.getById("tv", item);
+          setItemsList((itemsList) =>
+            Array.from(new Set([...itemsList, result]))
+          );
 
-        console.log(response);
-        const result = response;
-        console.log(result);
+          console.log(result);
 
-        setItemsList((itemsList) =>
-          Array.from(new Set([...itemsList, result]))
-        );
-
-        console.log(result);
-
-        return console.log(itemsList);
-      });
-      setNameLoaded(true);
-    }
-  };
-
-  myTry();
+          return console.log(itemsList);
+        });
+        setNameLoaded(true);
+      }
+    };
+    myTry();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userDoc]);
 
   return (
     <>
       <h3 id="title">My Tv Collection:</h3>
-      <div className="mymovie-list">
+      <div className="mymovie-list custom-list">
         {itemsList.map((item, i) => (
-          <MovieCard item={item} category="tv" id="colItem" />
+          <MovieCard item={item} category="tv" id="colItem" key={item.id} />
         ))}
       </div>
     </>
   );
 };
 
-export default TvColl;
+export default MovieColl;
