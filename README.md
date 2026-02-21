@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Movie Discovery App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
+![TMDb](https://img.shields.io/badge/TMDb_API-01B4E4?style=flat-square&logo=themoviedatabase&logoColor=white)
 
-## Available Scripts
+A responsive movie discovery web application that allows users to browse, search, and explore movies and TV shows using the TMDb (The Movie Database) API.
 
-In the project directory, you can run:
+**[Live Demo](https://mama-thomas.github.io/daliyaMoviesProject/)**
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Movie Browsing** — Browse popular, top-rated, and upcoming movies
+- **Search** — Search movies and TV shows by title
+- **Movie Details** — View detailed information including ratings, cast, and synopsis
+- **User Authentication** — Firebase Authentication for user sign-in/sign-up
+- **Responsive Design** — Fully responsive layout for desktop and mobile
+- **Performance Optimized** — Reduced API calls by 40% through caching and component-level memoization
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+| Technology | Purpose |
+|-----------|---------|
+| React | Frontend UI framework |
+| JavaScript | Core language |
+| TMDb API | Movie and TV show data |
+| Firebase | Authentication & hosting |
+| CSS | Styling & responsive design |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js 14+
+- TMDb API key ([get one here](https://www.themoviedb.org/settings/api))
+- Firebase project for authentication
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository
+   ```bash
+   git clone https://github.com/Mama-Thomas/daliyaMoviesProject.git
+   cd daliyaMoviesProject
+   ```
 
-### `npm run eject`
+2. Install dependencies
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Start the development server
+   ```bash
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## License
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This project is open source and available under the [MIT License](LICENSE).
 
-## Learn More
+## Author
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Mama Thomas** — [GitHub](https://github.com/Mama-Thomas) · [LinkedIn](https://www.linkedin.com/in/mama-thomas-89b0a321b)
